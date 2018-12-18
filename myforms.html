@@ -5,14 +5,14 @@
 </HEAD>
 <BODY style="background-color:powderblue;">
 <form id="myforms">
-Name:<input type="text" maxlength="15" pattern="[A-Za-z]" /><br/>
-Age:<input type="text" max="27" /><br/>
+Name:<input type="text" maxlength="15" pattern="[A-Za-z]" onfocus="displayMessage1()" onchange="return validateName(this)" required /><br/>
+Age:<input type="text" max="27" onfocus="displayMessage()" onchange="return validateAge(this)" required"/><br/>
 <br/>
 Gender:<br/>
 Male:<input type="radio" name="Gender" value="Male"/>
 Female:<input type = "radio" name ="Gender" value="Female"/><br/>
 <br/>
-Email: <input type="text" name="Email" pattern="[^A-Z]"/><br/>
+Email: <input type="text" name="Email" onfocus="displayMessage2()" onchange="return validateEmail(this)" /><br/>
 <br/>
 Nationality:<select name="Nationality">
 <option value="Indian">Indian</option>
@@ -27,10 +27,83 @@ AppD:<input type="checkbox" name="skillset" value="proficient in AppD"/><br/>
 WebD:<input type="checkbox" name="skillset" value="proficient in WebD"/><br/>
 FrontEnd:<input type="checkbox" name="skillset" value="proficient in FrontEnd"/><br/>
 BackEnd:<input type="checkbox" name="skillset" value="proficient in Backend"/><br/>
-Contact Number: <input type="text" size="10" pattern="[0-9]"/><br/>
-Password:<input type="Password" maxlength="8"/><br/>
+Contact Number: <input type="text" size="20" onfocus="displayMessage3()" onchange="return validateNumber(this)" required /><br/>
+Password:<input type="Password" maxlength="8" onfocus="displayMessage4()" onchange="return validatePass(this)"/><br/>
 <br/>
 <input type="Submit" value="Submit"/>
 <input type="Reset" value="Cancel"/>
+
+<script>
+function displayMessage1() {
+    document.getElementById("msg").innerHTML = "<strong>Note:</strong>Name must only contain letters";
+}
+ 
+function validateName(name) {
+	var input = /^[a-zA-Z]+$/;
+    if(name.value.match(input))
+		return true;
+    
+    else {
+        alert("Name must only contain letters "+name.value);
+        return false;
+    }
+	}
+ 
+function displayMessage() {
+    document.getElementById("msg").innerHTML = "<strong>Note:</strong>Age must be less than 27";
+}
+ 
+function validateAge(age) {
+    var input = age.value;
+    if(input<=27) {
+        return true;
+    }
+    else {
+        alert("Age must be less than 25 | You have entered "+input);
+        return false;
+    }
+}
+
+function displayMessage2() {
+    document.getElementById("msg").innerHTML = "<strong>Note:</strong>Email should not contain only small letters";
+ 
+function validateEmail(email) {
+    var input = /^[a-z0-9.,^-_%#@!]+$/;
+    if(email.value.match(input)) {
+        return true;
+    }
+    else {
+        alert("Email should not contain capital letters"+email.value);
+        return false;
+    }
+}
+
+function displayMessage3() {
+    document.getElementById("msg").innerHTML = "<strong>Note:</strong>Wrong mobile number";
+ 
+function validateNumber(no) {
+    var input = /^[0-90-90-90-90-90-90-90-90-90-9]+$/;
+    if(no.value.match(input)) {
+        return true;
+    }
+    else {
+        alert("number is invalid"+no.value);
+        return false;
+    }
+}
+
+function displayMessage4() {
+    document.getElementById("msg").innerHTML = "<strong>Note:</strong>Wrong number";
+ 
+function validatePass(pass) {
+    if(pass.value.match(name.value)) {
+        alert("Invalid password");
+		return false;
+    }
+    else {
+        return true;
+    }
+}
+</script>
 </BODY>
 </HTML>
