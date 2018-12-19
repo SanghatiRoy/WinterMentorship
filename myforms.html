@@ -5,7 +5,7 @@
 </HEAD>
 <BODY style="background-color:powderblue;">
 <form id="myforms">
-Name:<input type="text" maxlength="15" pattern="[A-Za-z]" onfocus="displayMessage1()" onchange="return validateName(this)" required /><br/>
+Name:<input type="text" maxlength="15" pattern="[A-Za-z]" onfocus="displayMessage1()" onchange="return validateName(this)" /><br/>
 Age:<input type="text" max="27" onfocus="displayMessage()" onchange="return validateAge(this)" required"/><br/>
 <br/>
 Gender:<br/>
@@ -27,11 +27,12 @@ AppD:<input type="checkbox" name="skillset" value="proficient in AppD"/><br/>
 WebD:<input type="checkbox" name="skillset" value="proficient in WebD"/><br/>
 FrontEnd:<input type="checkbox" name="skillset" value="proficient in FrontEnd"/><br/>
 BackEnd:<input type="checkbox" name="skillset" value="proficient in Backend"/><br/>
-Contact Number: <input type="text" size="20" onfocus="displayMessage3()" onchange="return validateNumber(this)" required /><br/>
+Contact Number: <input type="text" size="20" onfocus="displayMessage3()" onchange="return validateNumber(this)" /><br/>
 Password:<input type="Password" maxlength="8" onfocus="displayMessage4()" onchange="return validatePass(this)"/><br/>
 <br/>
 <input type="Submit" value="Submit"/>
 <input type="Reset" value="Cancel"/>
+</form>
 
 <script>
 function displayMessage1() {
