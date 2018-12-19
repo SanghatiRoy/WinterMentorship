@@ -40,8 +40,8 @@ function displayMessage1() {
 }
  
 function validateName(name) {
-	var input = /^[a-zA-Z]+$/;
-    if(name.value.match(input))
+	
+	if(/^[a-zA-Z]*$/g.test(document.myforms.name.value)) 
 		return true;
     
     else {
@@ -49,7 +49,6 @@ function validateName(name) {
         return false;
     }
 	}
- 
 function displayMessage() {
     document.getElementById("msg").innerHTML = "<strong>Note:</strong>Age must be less than 27";
 }
@@ -60,27 +59,28 @@ function validateAge(age) {
         return true;
     }
     else {
-        alert("Age must be less than 25 | You have entered "+input);
+        alert("Age must be less than 27 | You have entered "+input);
         return false;
     }
 }
 
 function displayMessage2() {
     document.getElementById("msg").innerHTML = "<strong>Note:</strong>Email should not contain only small letters";
+	}
  
 function validateEmail(email) {
-    var input = /^[a-z0-9.,^-_%#@!]+$/;
-    if(email.value.match(input)) {
+     if(/^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}$/g.test(document.myforms.email.value))
         return true;
     }
     else {
         alert("Email should not contain capital letters"+email.value);
         return false;
     }
-}
+
 
 function displayMessage3() {
     document.getElementById("msg").innerHTML = "<strong>Note:</strong>Wrong mobile number";
+	}
  
 function validateNumber(no) {
     var input = /^[0-90-90-90-90-90-90-90-90-90-9]+$/;
@@ -95,6 +95,7 @@ function validateNumber(no) {
 
 function displayMessage4() {
     document.getElementById("msg").innerHTML = "<strong>Note:</strong>Wrong number";
+	}
  
 function validatePass(pass) {
     if(pass.value.match(name.value)) {
